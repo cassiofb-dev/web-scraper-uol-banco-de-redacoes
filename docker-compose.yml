@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  web-scraper:
+    container_name: web-scraper
+    image: python:alpine
+    working_dir: "/web-scraper"
+    command: sh -c "python -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python uol_redacoes_scraper.py"
+    volumes:
+      - ./:/web-scraper
